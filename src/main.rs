@@ -28,7 +28,7 @@ fn both() {
     // 👍
 
     let err: Report<ReplaceError> = ptr.report_err().replace(2, "invalid").unwrap_err();
-    // ❌ no method named `replace` found for struct `jsonptr::reporter::Imuutable` in the current scope
+    // ❌ no method named `replace` found for struct `jsonptr::reporter::Immutable` in the current scope
 }
 
 fn main() {}
