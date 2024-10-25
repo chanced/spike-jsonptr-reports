@@ -25,6 +25,8 @@ fn both() {
         .report_err()
         .resolve(&serde_json::Value::Null)
         .unwrap_err();
+    // 👍
+
     let err: Report<ReplaceError> = ptr.report_err().replace(2, "invalid").unwrap_err();
     // ❌ no method named `replace` found for struct `jsonptr::reporter::Imuutable` in the current scope
 }
