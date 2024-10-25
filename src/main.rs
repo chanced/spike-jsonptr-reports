@@ -1,15 +1,15 @@
-use jsonptr::{error::Report, resolve, ReplaceError};
+use jsonptr::{error::Report, resolve, PointerBuf, ReplaceError};
 
 fn mutable() {
     use jsonptr::error::ReportErrMut;
-    let mut ptr = jsonptr::PointerBuf::parse("/example").unwrap();
+    let mut ptr = PointerBuf::parse("/example").unwrap();
     let err: Report<ReplaceError> = ptr.report_err().replace(2, "invalid").unwrap_err();
     // 👍
 }
 
 fn immutable() {
     use jsonptr::error::ReportErr;
-    let ptr = jsonptr::PointerBuf::parse("/example").unwrap();
+    let ptr = PointerBuf::parse("/example").unwrap();
     let err: Report<resolve::Error> = ptr
         .report_err()
         .resolve(&serde_json::Value::Null)
@@ -20,7 +20,7 @@ fn immutable() {
 fn both() {
     use jsonptr::error::{ReportErr, ReportErrMut};
 
-    let mut ptr = jsonptr::PointerBuf::parse("/example").unwrap();
+    let mut ptr = PointerBuf::parse("/example").unwrap();
     let err: Report<resolve::Error> = ptr
         .report_err()
         .resolve(&serde_json::Value::Null)
