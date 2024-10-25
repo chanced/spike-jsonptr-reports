@@ -1,0 +1,10 @@
+[package]
+name = "spike-jsonptr-reports"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+jsonptr = { path = "../../jsonptr" }
+# jsonptr = { git = "https://github.com/chanced/jsonptr", branch = "refactor_errors" }
+serde = "*"
+serde_json = "*"
